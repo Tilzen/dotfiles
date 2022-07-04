@@ -192,3 +192,6 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;; Splash Image
+(setq fancy-splash-image "~/.doom.d/images/black-hole.png")

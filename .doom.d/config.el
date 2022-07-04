@@ -147,3 +147,4 @@
 
 (add-hook 'find-file-hook 'set-theme-on-mode)
 (add-hook 'kill-buffer-hook 'set-theme-on-mode)
+
