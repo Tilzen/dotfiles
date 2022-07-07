@@ -60,5 +60,6 @@
 
 ; Themes
 (package! rebecca-theme)
-(package! zenburn-theme)
+(package! catppuccin-theme)
+(package! gruber-darker-theme)
 (package! kaolin-themes)
