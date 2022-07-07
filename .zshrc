@@ -71,5 +71,8 @@ alias cdg='cd ~/.git'
 alias cdgl='cd ~/.git/gitlab'
 alias cdgh='cd ~/.git/github'
 alias dotfiles="cd $DOTFILES"
+alias ls='exa --icons'
+alias ll='exa -l --icons'
+alias tree='exa --tree --git-ignore --icons'
 
 ### End of Aliases
