@@ -1,3 +1,7 @@
+ROOT_DIR := $(shell getent passwd nezlit  | cut -d: -f6)
+CURRENT_DIR := ${CURDIR}
+
+PKG_INSTALL = yes | pacman -S
 
 LANGUAGES = python nodejs haskell crystal rust golang ruby java clojure elixir erlang
 
@@ -15,3 +19,22 @@ install-languages:
 	asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 	asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 	$(foreach language, $(LANGUAGES), asdf install $(language) latest;)
+
+.PHONY: install-emacs
+install-emacs:
+	$(PKG_INSTALL) emacs
+
+.PHONY: install-doom
+install-doom: install-emacs
+	git clone --depth 1 https://github.com/doomemacs/doomemacs $(ROOT_DIR)/.emacs.d
+	$(ROOT_DIR)/.emacs.d/bin/doom install
+
+.PHONY: create-dotfiles-syml
+create-dotfiles-syml:
+	ln -sf $(CURRENT_DIR)/.zshrc $(ROOT_DIR)/.zshrc
+	ln -sf $(CURRENT_DIR)/.config/alacritty $(ROOT_DIR)/.config/alacritty
+	ln -sf $(CURRENT_DIR)/.config/i3 $(ROOT_DIR)/.config/i3
+	ln -sf $(CURRENT_DIR)/.config/polybar $(ROOT_DIR)/.config/polybar
+	ln -sf $(CURRENT_DIR)/.config/lvim $(ROOT_DIR)/.config/lvim
+	ln -sf $(CURRENT_DIR)/.gitconfig $(ROOT_DIR)/.gitconfig
+	ln -sf $(CURRENT_DIR)/.doom.d $(ROOT_DIR)/.doom.d
