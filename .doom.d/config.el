@@ -67,7 +67,7 @@
 (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") '+vterm/toggle)
-
+(global-set-key (kbd "M-'") 'shell-command)
 
 ;; Treemacs
 (setq doom-themes-treemacs-theme "doom-colors")
@@ -148,3 +148,8 @@
 (add-hook 'find-file-hook 'set-theme-on-mode)
 (add-hook 'kill-buffer-hook 'set-theme-on-mode)
 
+;; Org
+(define-key global-map (kbd "C-c c") 'org-capture)
+(setq org-capture-templates
+      '(("t" "todo" entry (file+headline "~/Documents/org/todo.org" "Tasks")
+         "* TODO [#A] %?")))
