@@ -77,7 +77,7 @@
 (ivy-posframe-mode 1)
 
 ;; Font
-(set-face-attribute 'default nil :font "Iosevka" :height 110)
+(set-face-attribute 'default nil :font "Iosevka" :height 120)
 
 ;; Cursor
 (setq evil-insert-state-cursor '((bar . 1) "white")
@@ -94,59 +94,59 @@
 (setq doom-themes-enable-bold nil)
 
 ;; Themes by Language
-(defun set-theme-on-mode ()
-  (interactive)
-  (let* (($bfn (buffer-file-name))
-         ($fileNameExt (if $bfn (file-name-extension $bfn) nil)))
+;; (defun set-theme-on-mode ()
+;;   (interactive)
+;;   (let* (($bfn (buffer-file-name))
+;;          ($fileNameExt (if $bfn (file-name-extension $bfn) nil)))
 
-    (cond ((not $fileNameExt) nil)
+;;     (cond ((not $fileNameExt) nil)
 
-          ((string-equal $fileNameExt "el")
-           (progn (load-theme 'doom-one)))
-          ((string-equal $fileNameExt "txt")
-           (progn (load-theme 'nord-light)))
+;;           ((string-equal $fileNameExt "el")
+;;            (progn (load-theme 'doom-one)))
+;;           ((string-equal $fileNameExt "txt")
+;;            (progn (load-theme 'nord-light)))
 
-          ;; JS/TS
-          ((string-equal $fileNameExt "js")
-           (progn (load-theme 'doom-tokyo-night t)))
+;;           ;; JS/TS
+;;           ((string-equal $fileNameExt "js")
+;;            (progn (load-theme 'doom-tokyo-night t)))
 
-          ((string-equal $fileNameExt "jsx")
-           (progn (load-theme 'doom-tokyo-night t)))
+;;           ((string-equal $fileNameExt "jsx")
+;;            (progn (load-theme 'doom-tokyo-night t)))
 
-          ((string-equal $fileNameExt "ts")
-           (progn (load-theme 'doom-tokyo-night t)))
+;;           ((string-equal $fileNameExt "ts")
+;;            (progn (load-theme 'doom-tokyo-night t)))
 
-          ((string-equal $fileNameExt "tsx")
-           (progn (load-theme 'doom-tokyo-night t)))
+;;           ((string-equal $fileNameExt "tsx")
+;;            (progn (load-theme 'doom-tokyo-night t)))
 
-          ;; Rust
-          ((string-equal $fileNameExt "rs")
-           (progn (load-theme 'doom-zenburn t)))
+;;           ;; Rust
+;;           ((string-equal $fileNameExt "rs")
+;;            (progn (load-theme 'doom-zenburn t)))
 
-          ;; Go
-          ((string-equal $fileNameExt "go")
-           (progn (load-theme 'doom-zenburn t)))
+;;           ;; Go
+;;           ((string-equal $fileNameExt "go")
+;;            (progn (load-theme 'doom-zenburn t)))
 
-          ;; C/C++
-          ((string-equal $fileNameExt "c")
-           (progn (load-theme 'doom-Iosvkem t)))
+;;           ;; C/C++
+;;           ((string-equal $fileNameExt "c")
+;;            (progn (load-theme 'doom-Iosvkem t)))
 
-          ((string-equal $fileNameExt "h")
-           (progn (load-theme 'doom-Iosvkem t)))
+;;           ((string-equal $fileNameExt "h")
+;;            (progn (load-theme 'doom-Iosvkem t)))
 
-          ((string-equal $fileNameExt "cc")
-           (progn (load-theme 'doom-Iosvkem t)))
+;;           ((string-equal $fileNameExt "cc")
+;;            (progn (load-theme 'doom-Iosvkem t)))
 
-          ;; Elixir
-          ((string-equal $fileNameExt "ex")
-           (progn (load-theme 'doom-horizon t)))
+;;           ;; Elixir
+;;           ((string-equal $fileNameExt "ex")
+;;            (progn (load-theme 'catppuccin t)))
 
-          ((string-equal $fileNameExt "exs")
-           (progn (load-theme 'doom-horizon t)))
-          (t nil))))
+;;           ((string-equal $fileNameExt "exs")
+;;            (progn (load-theme 'catppuccin t)))
+;;           (t nil))))
 
-(add-hook 'find-file-hook 'set-theme-on-mode)
-(add-hook 'kill-buffer-hook 'set-theme-on-mode)
+;; (add-hook 'find-file-hook 'set-theme-on-mode)
+;; (add-hook 'kill-buffer-hook 'set-theme-on-mode)
 
 ;; Org
 (define-key global-map (kbd "C-c c") 'org-capture)

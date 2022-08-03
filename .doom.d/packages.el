@@ -58,6 +58,10 @@
 
 (package! treemacs-all-the-icons)
 
+(package! go-autocomplete)
+
+(package! rust-auto-use)
+
 ; Themes
 (package! rebecca-theme)
 (package! catppuccin-theme)
