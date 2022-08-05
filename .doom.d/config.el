@@ -76,6 +76,9 @@
 ;; Ivy Posframe
 (ivy-posframe-mode 1)
 
+;; Wakatime
+(global-wakatime-mode)
+
 ;; Font
 (set-face-attribute 'default nil :font "Iosevka" :height 120)
 
