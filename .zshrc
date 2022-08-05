@@ -61,6 +61,13 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 
 ### End of PATH definitions 
 
+
+### Load Secrets
+
+source ~/.secrets/secrets.zsh
+
+### End of Secrets
+
 ### Aliases
 
 export DOTFILES="$HOME/.git/github/dotfiles"
