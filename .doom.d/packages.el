@@ -51,16 +51,12 @@
 
 
 (package! try)
-
 (package! ivy-posframe)
-
 (package! all-the-icons)
-
 (package! treemacs-all-the-icons)
-
 (package! go-autocomplete)
-
 (package! rust-auto-use)
+(package! wakatime-mode)
 
 ; Themes
 (package! rebecca-theme)
