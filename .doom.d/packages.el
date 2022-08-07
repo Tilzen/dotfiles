@@ -57,9 +57,13 @@
 (package! go-autocomplete)
 (package! rust-auto-use)
 (package! wakatime-mode)
+(package! lsp-mode)
 
 ; Themes
 (package! rebecca-theme)
 (package! catppuccin-theme)
 (package! gruber-darker-theme)
 (package! kaolin-themes)
+
+; Disabled
+(package! racer :disable t)
