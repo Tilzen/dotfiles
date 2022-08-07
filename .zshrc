@@ -50,9 +50,16 @@ zinit light zsh-users/zsh-completions
 . $HOME/.asdf/asdf.sh
 
 # JAVA_HOME
+
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 ### End of ASDF's config
+
+### Rust
+
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
+
+### End of Rust's section
 
 ### PATH definitions
 
@@ -71,6 +78,7 @@ source ~/.secrets/secrets.zsh
 ### Aliases
 
 export DOTFILES="$HOME/.git/github/dotfiles"
+export EXERCISM_PATH="$HOME/snap/exercism/5/exercism"
 
 alias v='lvim'
 alias e='emacs -nw'
@@ -78,6 +86,7 @@ alias cdg='cd ~/.git'
 alias cdgl='cd ~/.git/gitlab'
 alias cdgh='cd ~/.git/github'
 alias dotfiles="cd $DOTFILES"
+alias exerc="cd $EXERCISM_PATH"
 alias ls='exa --icons'
 alias ll='exa -l --icons'
 alias tree='exa --tree --git-ignore --icons'
