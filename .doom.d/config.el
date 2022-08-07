@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'gruber-darker)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -79,6 +79,112 @@
 ;; Wakatime
 (global-wakatime-mode)
 
+;; LSP
+(after! lsp-semantic-tokens
+  (defface lsp-face-semhl-attribute
+    '((t :inherit font-lock-comment-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-boolean
+    '((t :inherit font-lock-constant-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-builtin-type
+    '((t :inherit font-lock-type-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-lifetime
+    '((t :inherit font-lock-type-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-keyword-self
+    '((t :inherit font-lock-keyword-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-type-alias
+    '((t :inherit font-lock-type-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-union
+    '((t :inherit font-lock-type-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-unresolved-reference
+    '((t :inherit font-lock-warning-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-rust-format-specifier
+    '((t :inherit font-lock-variable-name-face))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-punctuation
+    '((t))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-parenthesis
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-bracket
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-brace
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-angle
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-comma
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-colon
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-semicolon
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (defface lsp-face-semhl-dot
+    '((t :inherit lsp-face-semhl-punctuation))
+    "." :group 'lsp-faces)
+  (setq lsp-semantic-token-faces
+        (append lsp-semantic-token-faces
+                '(("method" . lsp-face-semhl-method)
+                  ("attribute" . lsp-face-semhl-attribute)
+                  ("boolean" . lsp-face-semhl-boolean)
+                  ("builtinType" . lsp-face-semhl-builtin-type)
+                  ("lifetime" . lsp-face-semhl-lifetime)
+                  ("selfKeyword" . lsp-face-semhl-keyword-self)
+                  ("typeAlias" . lsp-face-semhl-type-alias)
+                  ("union" . lsp-face-semhl-union)
+                  ("unresolvedReference" . lsp-face-semhl-unresolved-reference)
+                  ("formatSpecifier" . lsp-face-semhl-rust-format-specifier)
+                  ("punctuation" . lsp-face-semhl-punctuation)
+                  ("parenthesis" . lsp-face-semhl-parenthesis)
+                  ("bracket" . lsp-face-semhl-bracket)
+                  ("brace" . lsp-face-semhl-brace)
+                  ("angle" . lsp-face-semhl-angle)
+                  ("comma" . lsp-face-semhl-comma)
+                  ("colon" . lsp-face-semhl-colon)
+                  ("semicolon" . lsp-face-semhl-semicolon)
+                  ("dot" . lsp-face-semhl-dot))))
+  (face-spec-set 'lsp-face-semhl-enum '((t :inherit font-lock-type-face)))
+  (defface lsp-face-semhl-declaration
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-mutable
+    '((t :underline t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-rust-attribute-element
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-rust-constant
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-control-flow
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-unsafe
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-consuming
+    '((t)) "." :group 'lsp-faces)
+  (defface lsp-face-semhl-callable
+    '((t)) "." :group 'lsp-faces)
+  (setq lsp-semantic-token-modifier-faces
+        '(("declaration" . lsp-face-semhl-declaration)
+          ("deprecated" . lsp-face-semhl-deprecated)
+          ("readonly" . lsp-face-semhl-constant)
+          ("mutable" . lsp-face-semhl-mutable)
+          ("attribute" . lsp-face-semhl-rust-attribute-element)
+          ("constant" . lsp-face-semhl-rust-constant)
+          ("controlFlow" . lsp-face-semhl-control-flow)
+          ("unsafe" . lsp-face-semhl-unsafe)
+          ("consuming" . lsp-face-semhl-consuming)
+          ("callable" . lsp-face-semhl-callable))))
+
 ;; Font
 (set-face-attribute 'default nil :font "Iosevka" :height 120)
 
@@ -96,63 +202,31 @@
 ;; Doom Themes
 (setq doom-themes-enable-bold nil)
 
-;; Themes by Language
-;; (defun set-theme-on-mode ()
-;;   (interactive)
-;;   (let* (($bfn (buffer-file-name))
-;;          ($fileNameExt (if $bfn (file-name-extension $bfn) nil)))
-
-;;     (cond ((not $fileNameExt) nil)
-
-;;           ((string-equal $fileNameExt "el")
-;;            (progn (load-theme 'doom-one)))
-;;           ((string-equal $fileNameExt "txt")
-;;            (progn (load-theme 'nord-light)))
-
-;;           ;; JS/TS
-;;           ((string-equal $fileNameExt "js")
-;;            (progn (load-theme 'doom-tokyo-night t)))
-
-;;           ((string-equal $fileNameExt "jsx")
-;;            (progn (load-theme 'doom-tokyo-night t)))
-
-;;           ((string-equal $fileNameExt "ts")
-;;            (progn (load-theme 'doom-tokyo-night t)))
-
-;;           ((string-equal $fileNameExt "tsx")
-;;            (progn (load-theme 'doom-tokyo-night t)))
-
-;;           ;; Rust
-;;           ((string-equal $fileNameExt "rs")
-;;            (progn (load-theme 'doom-zenburn t)))
-
-;;           ;; Go
-;;           ((string-equal $fileNameExt "go")
-;;            (progn (load-theme 'doom-zenburn t)))
-
-;;           ;; C/C++
-;;           ((string-equal $fileNameExt "c")
-;;            (progn (load-theme 'doom-Iosvkem t)))
-
-;;           ((string-equal $fileNameExt "h")
-;;            (progn (load-theme 'doom-Iosvkem t)))
-
-;;           ((string-equal $fileNameExt "cc")
-;;            (progn (load-theme 'doom-Iosvkem t)))
-
-;;           ;; Elixir
-;;           ((string-equal $fileNameExt "ex")
-;;            (progn (load-theme 'catppuccin t)))
-
-;;           ((string-equal $fileNameExt "exs")
-;;            (progn (load-theme 'catppuccin t)))
-;;           (t nil))))
-
-;; (add-hook 'find-file-hook 'set-theme-on-mode)
-;; (add-hook 'kill-buffer-hook 'set-theme-on-mode)
-
 ;; Org
 (define-key global-map (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
       '(("t" "todo" entry (file+headline "~/Documents/org/todo.org" "Tasks")
          "* TODO [#A] %?")))
+
+;; Rust
+(remove-hook! rust-mode-hook #'racer-mode #'eldoc-mode)
+(remove-hook! rustic-mode-hook #'racer-mode #'eldoc-mode)
+(remove-hook! rustic-mode-local-vars-hook #'racer-mode)
+(remove-hook! hack-local-variables-hook #'racer-mode)
+
+; Analyzer
+(setq lsp-rust-server 'rust-analyzer)
+(setq lsp-rust-analyzer-server-command '("env" "RA_LOG=error,rust_analyzer::config" "RA_PROFILE=*>400" "RUST_BACKTRACE=1" "rust-analyzer"))
+(setq lsp-rust-analyzer-completion-add-call-argument-snippets nil)
+(setq lsp-rust-analyzer-call-info-full nil)
+(setq lsp-rust-analyzer-server-display-inlay-hints t)
+(setq lsp-rust-analyzer-display-chaining-hints t)
+(setq lsp-rust-analyzer-display-parameter-hints t)
+(setq lsp-rust-analyzer-proc-macro-enable t)
+(setq lsp-rust-analyzer-cargo-run-build-scripts t)
+(setq lsp-rust-analyzer-max-inlay-hint-length 20)
+
+(defadvice! lsp-rust-analyzer-additional-options (fun)
+  :around 'lsp-rust-analyzer--make-init-options
+  (let ((opts (funcall fun)))
+    (append opts '(:experimental (:procAttrMacros t)))))
