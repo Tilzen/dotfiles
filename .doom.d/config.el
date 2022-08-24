@@ -68,6 +68,7 @@
 (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-'") '+vterm/toggle)
 (global-set-key (kbd "M-'") 'shell-command)
+(global-set-key (kbd "TAB") 'indent-for-tab-command)
 
 ;; Treemacs
 (setq doom-themes-treemacs-theme "doom-colors")
