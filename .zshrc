@@ -46,6 +46,15 @@ zinit light zsh-users/zsh-completions
 
 ### End of Zinit's plugins
 
+### ZSH history settings
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=500000
+SAVEHIST=500000
+setopt appendhistory
+setopt INC_APPEND_HISTORY  
+setopt SHARE_HISTORY
+### End of ZSH history settings
+
 ### Add ASDF config
 . $HOME/.asdf/asdf.sh
 
