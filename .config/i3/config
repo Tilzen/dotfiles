@@ -34,7 +34,7 @@ gaps outer 0
 #smart_gaps off
 
 # float game window by default
-for_window [title="[g|G]ame.*"] floating enable
+# for_window [title="[g|G]ame.*"] floating enable
 
 # Hide borders
 default_border pixel 1

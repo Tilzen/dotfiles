@@ -57,6 +57,7 @@
 (package! go-autocomplete)
 (package! rust-auto-use)
 (package! wakatime-mode)
+(package! clojure-mode)
 (package! lsp-mode)
 
 ; Themes
