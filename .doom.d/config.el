@@ -209,6 +209,49 @@
       '(("t" "todo" entry (file+headline "~/Documents/org/todo.org" "Tasks")
          "* TODO [#A] %?")))
 
+
+;;; Languages Configs
+
+;; C
+(add-hook 'c-mode-hook 'lsp)
+
+;; Clojure
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'clojurescript-mode-hook 'lsp)
+(add-hook 'clojurec-mode-hook 'lsp)
+
+;; Crystal
+(add-hook 'crystal-mode-hook 'lsp)
+
+;; Elixir
+(add-hook 'elixir-mode-hook 'lsp)
+
+;; Elm
+(add-hook 'elm-mode-hook 'lsp)
+
+;; Golang
+(add-hook 'go-mode-hook #'lsp-deferred)
+
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Haskell
+(add-hook 'haskell-mode-hook 'lsp)
+
+;; Scala
+(add-hook 'scala-mode-hook 'lsp)
+
+;; Python
+(add-hook 'python-mode-hook 'lsp)
+
+;; Ruby
+(add-hook 'ruby-mode-hook 'lsp)
+
+;; Java
+(add-hook 'java-mode-hook 'lsp)
+
 ;; Rust
 (remove-hook! rust-mode-hook #'racer-mode #'eldoc-mode)
 (remove-hook! rustic-mode-hook #'racer-mode #'eldoc-mode)

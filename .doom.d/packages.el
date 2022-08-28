@@ -58,7 +58,18 @@
 (package! rust-auto-use)
 (package! wakatime-mode)
 (package! clojure-mode)
+(package! crystal-mode)
+(package! elixir-mode)
+(package! haskell-mode)
+(package! ruby-mode)
+(package! scala-mode)
 (package! lsp-mode)
+(package! lsp-metals)
+(package! lsp-haskell)
+(package! lsp-jedi)
+(package! lsp-docker)
+(package! lsp-tailwindcss)
+(package! lsp-java)
 
 ; Themes
 (package! rebecca-theme)
