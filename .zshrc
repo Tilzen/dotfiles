@@ -101,3 +101,5 @@ alias ll='exa -l --icons'
 alias tree='exa --tree --git-ignore --icons'
 
 ### End of Aliases
+
+[ -f "/home/nezlit/.ghcup/env" ] && source "/home/nezlit/.ghcup/env" # ghcup-env
