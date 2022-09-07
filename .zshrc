@@ -99,6 +99,7 @@ alias exerc="cd $EXERCISM_PATH"
 alias ls='exa --icons'
 alias ll='exa -l --icons'
 alias tree='exa --tree --git-ignore --icons'
+alias minecraft='java -jar TLauncher-2.86.jar'
 
 ### End of Aliases
 
