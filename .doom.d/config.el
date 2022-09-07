@@ -64,8 +64,10 @@
 (global-set-key (kbd "C-<left>") 'windmove-left)
 (global-set-key (kbd "M-x") 'ivy-posframe)
 (global-set-key (kbd "C-/") 'comment-line)
+(global-set-key (kbd "C-S-<up>") 'mc/edit-lines)
 (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-S-<left>") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-S-<right>") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-'") '+vterm/toggle)
 (global-set-key (kbd "M-'") 'shell-command)
 (global-set-key (kbd "TAB") 'indent-for-tab-command)
@@ -76,9 +78,6 @@
 
 ;; Ivy Posframe
 (ivy-posframe-mode 1)
-
-;; Wakatime
-(global-wakatime-mode)
 
 ;; LSP
 (after! lsp-semantic-tokens

@@ -56,7 +56,7 @@
 (package! treemacs-all-the-icons)
 (package! go-autocomplete)
 (package! rust-auto-use)
-(package! wakatime-mode)
+(package! wakatime-mode :disable t)
 (package! clojure-mode)
 (package! crystal-mode)
 (package! elixir-mode)
