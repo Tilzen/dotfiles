@@ -70,6 +70,7 @@
 (package! lsp-docker)
 (package! lsp-tailwindcss)
 (package! lsp-java)
+(package! all-the-icons)
 
 ; Themes
 (package! rebecca-theme)

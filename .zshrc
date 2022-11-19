@@ -99,6 +99,9 @@ alias exerc="cd $EXERCISM_PATH"
 alias ls='exa --icons'
 alias ll='exa -l --icons'
 alias tree='exa --tree --git-ignore --icons'
+alias ipython='python -m IPython'
+alias login_ssh='eval `ssh-agent -s` && ssh-add'
+alias sz='source ~/.zshrc'
 alias minecraft='java -jar TLauncher-2.86.jar'
 
 ### End of Aliases

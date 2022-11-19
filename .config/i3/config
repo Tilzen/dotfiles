@@ -26,7 +26,7 @@ set $alt Mod1
 bindsym $alt+a exec rofi -combi-modi window#drun -theme simple-tokyonight -show combi -modi combi -show-icons
 
 # Wallpaper
-exec --no-startup-id nitrogen --set-auto ~/Pictures/Wallpapers/blue_mountains_4k_2.jpg
+exec --no-startup-id nitrogen --set-auto ~/Pictures/Wallpapers/613ecf0d010e0.jpg
 
 # Add gaps
 gaps inner 10
