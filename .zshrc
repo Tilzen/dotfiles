@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+bindkey "\E[1~" beginning-of-line
+bindkey "\E[4~" end-of-line
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -55,20 +58,23 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 ### End of ZSH history settings
 
-### Add ASDF config
-. $HOME/.asdf/asdf.sh
-
 # JAVA_HOME
 
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-### End of ASDF's config
+export JAVA_HOME="~/java/jdk-17.0.6+10/bin/java"
 
 ### Rust
 
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 
 ### End of Rust's section
+
+### Golang
+
+export PATH=$PATH:/usr/bin/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+### End of Golang's section
 
 ### PATH definitions
 
@@ -77,6 +83,9 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 
 ### End of PATH definitions 
 
+### Python settings
+export PYTHONBREAKPOINT='ipdb.set_trace'
+### End of Python
 
 ### Load Secrets
 
@@ -103,7 +112,14 @@ alias ipython='python -m IPython'
 alias login_ssh='eval `ssh-agent -s` && ssh-add'
 alias sz='source ~/.zshrc'
 alias minecraft='java -jar TLauncher-2.86.jar'
+alias tibia='~/Tibia/Tibia &'
 
 ### End of Aliases
 
+export TERM=screen-256color
+
 [ -f "/home/nezlit/.ghcup/env" ] && source "/home/nezlit/.ghcup/env" # ghcup-env
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

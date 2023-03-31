@@ -68,6 +68,8 @@
 (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-<left>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-S-<right>") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-s") 'switch-to-buffer)
+(global-set-key (kbd "M-q") 'kill-buffer)
 (global-set-key (kbd "C-'") '+vterm/toggle)
 (global-set-key (kbd "M-'") 'shell-command)
 (global-set-key (kbd "TAB") 'indent-for-tab-command)
@@ -186,7 +188,18 @@
           ("callable" . lsp-face-semhl-callable))))
 
 ;; Font
-(set-face-attribute 'default nil :font "Iosevka" :height 120)
+;; (set-face-attribute 'default nil :font "Iosevka" :height 150)
+(set-face-attribute 'default nil :font "Victor Mono" :height 140)
+;; (set-face-attribute 'default nil :font "Source Code Pro" :height 130)
+;; (set-face-attribute 'default nil :font "Jetbrains Mono Nerdfont" :height 130)
+(set-face-bold-p 'bold nil)
+
+;(add-hook 'doom-load-theme-hook
+;          (mapc
+;           (lambda (face)
+;             (when (eq (face-attribute face :weight) 'bold)
+;               (set-face-attribute face nil :weight 'normal :underline nil)))
+;           (face-list)))
 
 ;; Cursor
 (setq evil-insert-state-cursor '((bar . 1) "white")
@@ -208,6 +221,13 @@
       '(("t" "todo" entry (file+headline "~/Documents/org/todo.org" "Tasks")
          "* TODO [#A] %?")))
 
+
+;; Database Client Configs
+(setq sql-postgres-login-params
+      '((user :default "postgres")
+        (database :default "postgres")
+        (server :default "localhost")
+        (port :default 5432)))
 
 ;;; Languages Configs
 
@@ -249,7 +269,14 @@
 (add-hook 'ruby-mode-hook 'lsp)
 
 ;; Java
-(add-hook 'java-mode-hook 'lsp)
+(setq meghanada-java-path "/home/nezlit/.sdkman/candidates/java/current/bin/java")
+(add-hook 'java-mode-hook
+          (lambda ()
+            (setq-local company-backends '(company-meghanada))
+            (meghanada-mode t)
+            (flycheck-mode +1)
+            (setq c-basic-offset 2)
+            (setq indent-tabs-mode nil)))
 
 ;; Rust
 (remove-hook! rust-mode-hook #'racer-mode #'eldoc-mode)

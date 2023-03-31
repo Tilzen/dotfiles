@@ -16,7 +16,7 @@ bindsym Print exec flameshot gui
 exec --no-startup-id zsh ~/.config/polybar/launch.sh
 
 # Picom
-#exec --no-startup-id picom -CGb
+exec --no-startup-id picom -CGb
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -26,7 +26,8 @@ set $alt Mod1
 bindsym $alt+a exec rofi -combi-modi window#drun -theme simple-tokyonight -show combi -modi combi -show-icons
 
 # Wallpaper
-exec --no-startup-id nitrogen --set-auto ~/Pictures/Wallpapers/613ecf0d010e0.jpg
+#exec --no-startup-id nitrogen --set-auto ~/Pictures/Wallpapers/613ecf0d010e0.jpg
+exec --no-startup-id nitrogen --set-auto ~/i3-animated-background/scripts/8088707/8088707000.png
 
 # Add gaps
 gaps inner 10
@@ -73,7 +74,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec urxvt 
 
 
 # kill focused window

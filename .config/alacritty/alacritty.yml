@@ -29,16 +29,16 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka
+    family: "Fira Code NerdFont"
     style: Light
   bold:
-    family: Iosevka
+    family: "Fira Code NerdFont"
     style: Medium
     # family: "Fira Code"
     # family: "Source Code Pro"
 
   italic:
-    family: Iosevka
+    family: "SF Mono"
     style: "Light Italic"
   size: 14.0
 
